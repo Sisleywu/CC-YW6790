@@ -1,4 +1,4 @@
-# p5.js multi sketch template
+# Sisley Creative Coding Repo
 
 This is a test. To see if it's connected. Again.
 
