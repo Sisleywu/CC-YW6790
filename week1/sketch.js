@@ -2,13 +2,13 @@
 // this is the only part of the file you need to edit!
 
 const quotes = [
-  { text: "a new form of expression that bridges the gap between technology and art", source: "Ahmad Moussa, 2026" },
-  { text: "a process based on exploration, iteration, reflection and discovery", source: "Tim, 2023" },
-  { text: "the practice of combining programming techniques with artistic expression", source: "SMU,2024" },
+  { text: "a new form of expression that bridges the gap between technology and art", source: "Ahmad Moussa" },
+  { text: "a process based on exploration, iteration, reflection and discovery", source: "Tim" },
+  { text: "the practice of combining programming techniques with artistic expression", source: "SMU" },
   { text: "the process of using code, technology and computers as artistic and designtools", source: "Whitney" },
   { text: "a deliberate act of letting go and see where the process take you", source: "Patrik" },
-  { text: "the application of programming techniques in the act of creation", source: "Stokes, 2017" },
-  { text: "creating something expressive instead of something only functional", source: "Zhai, 2020" },
+  { text: "the application of programming techniques in the act of creation", source: "Stokes" },
+  { text: "creating something expressive instead of something only functional", source: "Zhai" },
   { text: "learning a new language", source: "Reas, 2008" }
 ];
 // no need to edit anything below this line! 
@@ -33,7 +33,7 @@ function pickQuote() {
 }
 
 function draw() {
-  background(0, 0, 0); // set the background color
+  background(48, 32, 15); // set the background color
   drawQuote();  // draw the quote on screen
 }
 
