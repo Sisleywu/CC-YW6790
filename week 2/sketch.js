@@ -1,26 +1,41 @@
-let colorPalette = ["#F26419", "#D5573B", "#EF3E36", "#F55536", "#FF4000", "#F9B5AC"];
+let colorPalette = ["#E6F8B2", "#5430D5", "#D0DAB4", "#FFD621 ", "#618BFF"];
 let c;
+let r;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noLoop();
+  r = random(0, 360); // pick a random rotation angle between 0 and 360 degrees
   c = random(colorPalette); // pick a random color from the color palette
 }
 
 function draw() {
-  background(23, 35, 52);
+  background(20, 11, 50);
   // draw a triangle and defining the vertices of the triangle
   let topx = windowWidth/2, topy = windowHeight/2 - 100; // top vertex of triangle
   let bRx = windowWidth/2 + 300, bRy = windowHeight/2 + 50; // bottom right vertex of triangle
   let bLx = windowWidth/2 - 300, bLy = windowHeight/2 + 50; // bottom left vertex of triangle
+
+  //rotate the sqaure
+  push();
+  translate(windowWidth/2, 610); // move the origin to the center of the square
+  rotate(random(r));
+  rectMode(CENTER); // set the square to center
+  //draw a square
+  fill(221, 255, 0); //color of square
+  noStroke();
+  square(0, 0, 100); 
+  pop(); // restore the original coordinate system
+
   fill(c); // color of triangle
   noStroke();
   triangle(topx, topy, bRx, bRy, bLx, bLy);
 
   stroke(156, 163, 239); //color of rain drops
+  strokeWeight(2); //thickness of rain drops
   
-  //draw 100 rain drops
-  for (let i = 0; i < 200; i++) {
+  //draw 300 rain drops
+  for (let i = 0; i < 300; i++) {
     let x = random(windowWidth); // randompositions of rain drops
     let y = random(windowHeight); 
     let lineLength = random(10, 45); //length of rain drops(lines)
