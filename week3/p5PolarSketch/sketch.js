@@ -15,50 +15,54 @@ function setup() {
 
 function draw() {
   setCenter(x, y);
-  background(47, 75, 38);
+  background(18, 0, 44);
 
   push();
-   fill(62, 136, 91, 255);
+   fill(64, 0, 182, 255);
    noStroke();
    polarEllipses(1, 70, 70, 0);
   pop();
 
   push();
-  fill(133, 189, 166, 180);
+  fill(171, 152, 227, 100);
   noStroke();
   polarTriangles(8, 130, 150);
   pop();
 
   push();
-  fill(192, 215, 187, 130);
+  fill(178, 220, 208, 100);
   noStroke();
   polarEllipses(8, 150, 150, 300);
   pop();
 
+  push();
   noFill();
-  stroke();
+  stroke(246, 255, 145, 255);
   strokeWeight(2);
   polarEllipses(8, 160, 160, 290);
-
-  noFill();
-  stroke(47, 75, 38);
-  strokeWeight(2);
-  polarEllipse(1, 120, 120, 0);
+  pop();
 
   push();
-   fill(190, 220, 254, 255);
+  noFill();
+  stroke(255, 133, 100, 255);
+  strokeWeight(2);
+  polarEllipse(1, 120, 120, 0);
+  pop();
+
+  push();
+   fill(241, 133, 100, 255);
    noStroke();
    polarEllipses(8, 5, 5, 170);
   pop();
 
   push();
-   fill(47, 75, 38, 255);
+   fill(64, 0, 182, 255);
    noStroke();
    polarEllipses(12, 10, 10, 200);
   pop();
 
   push();
-    fill(62, 136, 91, 255);
+    fill(56, 198, 211, 255);
     noStroke();
     rotate(0);
     polarEllipses(8, 8, 30, 250);
@@ -66,27 +70,29 @@ function draw() {
 
    push();
     noFill();
-    stroke(190, 220, 254); 
+    stroke(246, 255, 145); 
     strokeWeight(2);
     rotate(0); //0.785
     polarLines(8, 10, 310);
   pop();
 
-  fill(192, 215, 187, 200);
+  fill(56, 198, 211, 180);
   noStroke();
   polarEllipses(4, 20, 40, 70);
 
   push();
-    fill(190, 220, 254, 255);
+    fill(155, 155, 209, 255);
     noStroke();
     rotate(150);
     polarTriangles(4, 10, 80);
   pop();
 
+  push();
   noFill();
-  stroke(192, 215, 187);
+  stroke(241, 133, 100);
   strokeWeight(2);
   polarLines(8, 60, 0);
+  pop();
 
   drawStar(0, 0, 80, 20); 
   
@@ -115,7 +121,7 @@ function drawStar(starX, starY, outerRadius, innerRadius){
   let alpha = 255; 
   let starColor;
   
-    starColor = color(190, 220, 254);
+    starColor = color(205, 247, 15);
 
     push();
       translate(starX, starY);
