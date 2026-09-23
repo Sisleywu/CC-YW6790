@@ -15,22 +15,22 @@ function setup() {
 
 function draw() {
   setCenter(x, y);
-  background(180, 205, 237);
+  background(47, 75, 38);
 
   push();
-   fill(243, 66, 19, 255);
+   fill(62, 136, 91, 255);
    noStroke();
    polarEllipses(1, 70, 70, 0);
   pop();
 
   push();
-  fill(210, 241, 113, 190);
+  fill(133, 189, 166, 180);
   noStroke();
   polarTriangles(8, 130, 150);
   pop();
 
   push();
-  fill(110, 141, 229, 130);
+  fill(192, 215, 187, 130);
   noStroke();
   polarEllipses(8, 150, 150, 300);
   pop();
@@ -41,24 +41,24 @@ function draw() {
   polarEllipses(8, 160, 160, 290);
 
   noFill();
-  stroke(255, 123, 145);
+  stroke(47, 75, 38);
   strokeWeight(2);
   polarEllipse(1, 120, 120, 0);
 
   push();
-   fill(194, 249, 119);
+   fill(190, 220, 254, 255);
    noStroke();
    polarEllipses(8, 5, 5, 170);
   pop();
 
   push();
-   fill(243, 66, 19, 255);
+   fill(47, 75, 38, 255);
    noStroke();
    polarEllipses(12, 10, 10, 200);
   pop();
 
   push();
-    fill(243, 66, 19, 255);
+    fill(62, 136, 91, 255);
     noStroke();
     rotate(0);
     polarEllipses(8, 8, 30, 250);
@@ -66,25 +66,25 @@ function draw() {
 
    push();
     noFill();
-    stroke(164, 191, 235); 
+    stroke(190, 220, 254); 
     strokeWeight(2);
     rotate(0); //0.785
     polarLines(8, 10, 310);
   pop();
 
-  fill(64, 91, 255, 200);
+  fill(192, 215, 187, 200);
   noStroke();
   polarEllipses(4, 20, 40, 70);
 
   push();
-    fill(160, 255, 20, 255);
+    fill(190, 220, 254, 255);
     noStroke();
     rotate(150);
     polarTriangles(4, 10, 80);
   pop();
 
   noFill();
-  stroke(164, 191, 235);
+  stroke(192, 215, 187);
   strokeWeight(2);
   polarLines(8, 60, 0);
 
@@ -115,7 +115,7 @@ function drawStar(starX, starY, outerRadius, innerRadius){
   let alpha = 255; 
   let starColor;
   
-    starColor = color(245, 247, 73);
+    starColor = color(190, 220, 254);
 
     push();
       translate(starX, starY);
