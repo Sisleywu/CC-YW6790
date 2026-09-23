@@ -24,33 +24,33 @@ function draw() {
   pop();
 
   push();
-  fill(171, 152, 227, 100);
+  fill(241, 133, 100, 100);
   noStroke();
   polarTriangles(8, 130, 150);
   pop();
 
   push();
-  fill(178, 220, 208, 100);
+  fill(165, 146, 223, 100);
   noStroke();
   polarEllipses(8, 150, 150, 300);
   pop();
 
   push();
   noFill();
-  stroke(246, 255, 145, 255);
+  stroke(241, 133, 100, 255);
   strokeWeight(2);
   polarEllipses(8, 160, 160, 290);
   pop();
 
   push();
   noFill();
-  stroke(255, 133, 100, 255);
+  stroke(64, 0, 182, 255);
   strokeWeight(2);
   polarEllipse(1, 120, 120, 0);
   pop();
 
   push();
-   fill(241, 133, 100, 255);
+   fill(234, 240, 148, 255);
    noStroke();
    polarEllipses(8, 5, 5, 170);
   pop();
@@ -62,7 +62,7 @@ function draw() {
   pop();
 
   push();
-    fill(56, 198, 211, 255);
+    fill(64, 0, 182, 255);
     noStroke();
     rotate(0);
     polarEllipses(8, 8, 30, 250);
@@ -70,18 +70,18 @@ function draw() {
 
    push();
     noFill();
-    stroke(246, 255, 145); 
+    stroke(241, 133, 100); 
     strokeWeight(2);
     rotate(0); //0.785
     polarLines(8, 10, 310);
   pop();
 
-  fill(56, 198, 211, 180);
+  fill(165, 146, 223, 180);
   noStroke();
   polarEllipses(4, 20, 40, 70);
 
   push();
-    fill(155, 155, 209, 255);
+    fill(205, 247, 15, 255);
     noStroke();
     rotate(150);
     polarTriangles(4, 10, 80);
