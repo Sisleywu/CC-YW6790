@@ -11,6 +11,12 @@ const DPI = 70; // dots per inch
 const PAGE_W = 8.5*DPI; 
 const PAGE_H = 11*DPI;
 
+//store all circles
+let circles = [];
+
+//controls direction of fish with mouse move
+let fishDirection = 1;
+
 //------------------------------------------------------------
 function setup() {
   createCanvas(PAGE_W, PAGE_H);
@@ -19,6 +25,8 @@ function setup() {
   // Set the SVG group by stroke color to `true`, so that strokes 
   // of the same color are grouped together in the SVG file. 
   setSvgGroupByStrokeColor(true); 
+
+  generateCircles(); //my designed function
 }
 
 function draw(){
@@ -46,17 +54,42 @@ let myColors = [
   color(0, 0, 255),
   ];
 
-  for (let i = 0; i < 55; i++) {
+  //making the cirlces avoid mouse
+  for (let i = 0; i < circles.length; i++) {
 
-    let x = random(50, width - 50);
-    let y = random(50, height - 50);
+    let c = circles[i];
 
-    let circleSize = random(20, 120);
+    // distance between mouse and circle center
+    let d = dist(mouseX, mouseY, c.x, c.y);
 
-    let circleColor = random(myColors);
+    // if mouse gets close
+    if (d < c.size / 2 + 30) {
 
-    filledCircle(x, y, circleSize, circleColor);
+      let dx = c.x - mouseX;
+      let dy = c.y - mouseY;
+
+      let length = sqrt(dx * dx + dy * dy);
+
+      if (length > 0) {
+        dx = dx / length;
+        dy = dy / length;
+      }
+
+      // move away from mouse
+      c.x += dx * 2;
+      c.y += dy * 2;
+      }
+
+    filledCircle(
+      c.x,
+      c.y,
+      c.size,
+      c.circleColor
+    );
   }
+
+  //mouse fish
+  drawFish();
 }
 
 function filledCircle(x, y, circleSize, circleColor) {
@@ -70,6 +103,71 @@ function filledCircle(x, y, circleSize, circleColor) {
     circle(x, y, d);
   }
 }
+
+//for the mouse hoover to make circles avoiding 
+function generateCircles() {
+
+  circles = [];
+
+  randomSeed(myRandomSeed);
+
+  for (let i = 0; i < 55; i++) {
+
+    let circleColor;
+
+    // 20% red, 80% blue
+    if (random(1) < 0.2) {
+      circleColor = color(220, 50, 50);
+    } else {
+      circleColor = color(30, 90, 200);
+    }
+
+    circles.push({
+      x: random(50, width - 50),
+      y: random(50, height - 50),
+      size: random(20, 120),
+      circleColor: circleColor
+    });
+  }
+}
+
+function drawFish() {
+
+  push();
+  translate(mouseX, mouseY);
+
+  stroke(255, 0, 0);
+  strokeWeight(2);
+  noFill();
+
+   // update direction only when mouse actually moves
+  if (mouseX > pmouseX) {
+    fishDirection = -1;
+  } 
+  else if (mouseX < pmouseX) {
+    fishDirection = 1;
+  }
+  scale(fishDirection, 1);
+
+  // body
+  triangle(
+    -35, 0,
+    20, -35,
+    20, 35
+  );
+
+  // tail
+  triangle(
+    20, 0,
+    45, -18,
+    45, 18
+  );
+
+  // eye
+  circle(-15, -5, 4);
+
+  pop();
+}
 // Tip: When plotting, strokeWeight() doesn't affect your drawing. 
 // To change the thickness of your drawing, change your pen/marker/etc
 // - or experiment with code (use a for loop to create an 'outline')
@@ -80,6 +178,7 @@ function filledCircle(x, y, circleSize, circleColor) {
 // Make a new random seed when the "Regenerate" button is pressed
 function regenerate(){
   myRandomSeed = round(millis()); 
+  generateCircles();
 }
 
 // Set the SVG to be exported when the "Export SVG" button is pressed
@@ -96,6 +195,8 @@ function UI() {
   exportSvgButton.position(120, height);
   exportSvgButton.mousePressed(initiateSvgExport); // run initiateSvgExport() when pressed
 }
+
+
 
 /*
 This template uses the following sketch as a starting point: 

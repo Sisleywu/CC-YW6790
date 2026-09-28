@@ -5,3 +5,11 @@ html, body {
 canvas {
   display: block;
 }
+
+body {
+  font-family: 'Courier', Courier, monospace;
+  margin: 2em;
+  /*padding: 1em;*/
+  color: (0, 0, 255);
+  background-color: (255);
+  }
