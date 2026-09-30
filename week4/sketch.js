@@ -68,7 +68,9 @@ let myColors = [
       let dx = c.x - mouseX;
       let dy = c.y - mouseY;
 
-      let length = sqrt(dx * dx + dy * dy);
+      let length = sqrt(dx * dx + dy * dy); //calculates the sqaure roots
+      //dx = the horizontsl distance between my mouse and my fish, dy = the vertical distance between. 
+      //So that the vertex(points) of my fish makes the circle to move away
 
       if (length > 0) {
         dx = dx / length;
