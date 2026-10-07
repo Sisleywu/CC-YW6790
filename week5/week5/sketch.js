@@ -66,6 +66,11 @@ function draw() {
   if (currentMinute !== previousMinute) {
     speedX = random(-2, 2);
     speedY = random(-2, 2);
+    // calculate the total speed
+    let totalSpeed = sqrt(speedX * speedX + speedY * speedY);
+    // keep the total speed at 1.5
+    speedX = speedX / totalSpeed * 1.5;
+    speedY = speedY / totalSpeed * 1.5;
     previousMinute = currentMinute; // remember this new minute
   }
 
@@ -73,9 +78,11 @@ function draw() {
   if (frameCount % 120 === 0) {
     speedX += random(-0.5, 0.5);
     speedY += random(-0.5, 0.5);
-    // keep the speed between -2 and 2
-    speedX = constrain(speedX, -2, 2);
-    speedY = constrain(speedY, -2, 2);
+    // make the total speed always the same
+    let totalSpeed = sqrt(speedX * speedX + speedY * speedY);
+    // bring the total speed back to 1.5
+    speedX = speedX / totalSpeed * 1.5;
+    speedY = speedY / totalSpeed * 1.5;
   }
 
   // hour: the resurfacer cleans the ice every hour
