@@ -39,7 +39,6 @@ function setup() {
   previousHour = hour();
 }
 
-
 function draw() {
 
    // second: 0 - 59
@@ -49,9 +48,14 @@ function draw() {
   // hour: 0 - 23
   let currentHour = hour();
 
+  // calculate how many seconds have passed in this hour
+  let secondsInHour = currentMinute * 60 + currentSecond;
+
+  
   // noise() gives a smoothly changing by the number between about 0 and 1
   let iceNoise = noise(noiseTime);
-  let ice = map(currentSecond, 0, 59, 0, 20);   // as second goes, map function changes the color, making the ice darker.
+  // ice slowly gets darker throughout the whole hour
+  let ice = map(secondsInHour, 0, 3599, 0, 20);   
   let noiseColor = map(iceNoise, 0, 1, -5, 5);
 
   //ice becomes darker each second passed
@@ -69,6 +73,9 @@ function draw() {
   if (frameCount % 120 === 0) {
     speedX += random(-0.5, 0.5);
     speedY += random(-0.5, 0.5);
+    // keep the speed between -2 and 2
+    speedX = constrain(speedX, -2, 2);
+    speedY = constrain(speedY, -2, 2);
   }
 
   // hour: the resurfacer cleans the ice every hour
@@ -82,6 +89,12 @@ function draw() {
   if (cleaning === false) {
     skaterX += speedX;
     skaterY += speedY;
+
+     //stores the traces in the global array
+    traces.push({
+      x: skaterX, 
+      y: skaterY
+    });
   }
 
    // if skater touches the left or right edge, bounces back in horizontal direction
@@ -92,17 +105,15 @@ function draw() {
   if (skaterY > height || skaterY < 0) {
     speedY *= -1;
   }
-
-  //stores the traces in the global array
-  traces.push({x: skaterX, y: skaterY});
   
   //draw traces
   stroke(150, 175, 185);
   strokeWeight(2);
 
   // draw the traces stored in the array
-  for (let i = 0; i < traces.length; i++) {
-    point(traces[i].x, traces[i].y);
+  // when i = 1, we draw a line from the first trace to the second trace
+  for (let i = 1; i < traces.length; i++) {
+    line(traces[i - 1].x, traces[i - 1].y, traces[i].x, traces[i].y);
   }
 
   // ice resurfacer
@@ -126,7 +137,7 @@ function draw() {
       cleaning = false;
     }
   }
-  
+
   // only show skater when resurfacer is not cleaning
   if (cleaning === false) {
     //draw skater 
