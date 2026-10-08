@@ -40,6 +40,7 @@ function setup() {
 }
 
 function draw() {
+  background(235, 230, 245)
 
    // second: 0 - 59
   let currentSecond = second();
@@ -53,26 +54,26 @@ function draw() {
 
   
   // noise() gives a smoothly changing by the number between about 0 and 1
-  let iceNoise = noise(noiseTime);
-  // ice slowly gets darker throughout the whole hour
-  let ice = map(secondsInHour, 0, 3599, 0, 20);   
-  let noiseColor = map(iceNoise, 0, 1, -5, 5);
+  // let iceNoise = noise(noiseTime);
+  // // ice slowly gets darker throughout the whole hour
+  // let ice = map(secondsInHour, 0, 3599, 0, 20);   
+  // let noiseColor = map(iceNoise, 0, 1, -5, 5);
 
-  //ice becomes darker each second passed
-  background(225 - ice + noiseColor, 240 - ice + noiseColor, 255); 
-  noiseTime += 0.002; //smaller number = slower color change
+  // //ice becomes darker each second passed
+  // background(225 - ice + noiseColor, 240 - ice + noiseColor, 255); 
+  // noiseTime += 0.002; //smaller number = slower color change
 
-  // changes direction when minute changes/a new minute has started
-  if (currentMinute !== previousMinute) {
-    speedX = random(-2, 2);
-    speedY = random(-2, 2);
-    // calculate the total speed
-    let totalSpeed = sqrt(speedX * speedX + speedY * speedY);
-    // keep the total speed at 1.5
-    speedX = speedX / totalSpeed * 1.5;
-    speedY = speedY / totalSpeed * 1.5;
-    previousMinute = currentMinute; // remember this new minute
-  }
+  // // changes direction when minute changes/a new minute has started
+  // if (currentMinute !== previousMinute) {
+  //   speedX = random(-2, 2);
+  //   speedY = random(-2, 2);
+  //   // calculate the total speed
+  //   let totalSpeed = sqrt(speedX * speedX + speedY * speedY);
+  //   // keep the total speed at 1.5
+  //   speedX = speedX / totalSpeed * 1.5;
+  //   speedY = speedY / totalSpeed * 1.5;
+  //   previousMinute = currentMinute; // remember this new minute
+  // }
 
    // every 120 frames, slightly changes the direction of skater
   if (frameCount % 120 === 0) {
@@ -86,11 +87,11 @@ function draw() {
   }
 
   // hour: the resurfacer cleans the ice every hour
-  if (currentHour !== previousHour) {
-    cleaning = true;
-    resurfacerX = 0; //starts from left
-    previousHour = currentHour; // remember this new hour
-  }
+  // if (currentHour !== previousHour) {
+  //   cleaning = true;
+  //   resurfacerX = 0; //starts from left
+  //   previousHour = currentHour; // remember this new hour
+  // }
 
   // the skater only moves when not cleaning
   if (cleaning === false) {
