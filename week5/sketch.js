@@ -19,7 +19,7 @@ function setup() {
   let canvas = createCanvas(500, 500);
   canvas.parent('week5-sketch'); // do not delete - links to your index.html pages (description)
   // HSB: Hue (0-360), Saturation (0-100), Brightness (0-100)
-  colorMode(HSB, 360, 100, 100);
+  colorMode(RGB, 255, 255, 255);
 
   //remember the previous second
   previousSecond = second();
@@ -41,8 +41,8 @@ function setup() {
 
     // trace color changes based on the past minute
     let pastColor = lerpColor(
-      color(200, 20, 65),
-      color(275, 45, 45),
+      color(133, 155, 166),
+      color(93, 63, 115),
       t / 3599
     );
 
@@ -55,6 +55,8 @@ function setup() {
 }
 
 function draw() {
+  push();
+  colorMode(RGB, 255, 255, 255);
    // second: 0 - 59
   let currentSecond = second();
   // minute: 0 - 59
@@ -64,14 +66,14 @@ function draw() {
  
   // changes trace color based on the current minute gradually 
   let traceColor = lerpColor(
-    color(205, 38, 65),
-    color(215, 65, 35),
+    color(103, 142, 166),
+    color(31, 55, 89),
     currentMinute / 59
   );
 
   // the ice color become darker as time passes
-  let cleanIce = color(192, 12, 97); 
-  let oldIce = color(210, 35, 85); 
+  let cleanIce = color(218, 242, 247); 
+  let oldIce = color(141, 179, 217); 
 
   // how many seconds have passed in the hour (0 to 3599), so the color change of ice happens smoothly every second
   let secondsInHour = currentMinute * 60 + currentSecond;
@@ -131,7 +133,6 @@ function draw() {
   }
   
   //draw traces
-  stroke(150, 175, 185);
   strokeWeight(2);
 
   // draw the traces stored in the array
@@ -155,7 +156,7 @@ function draw() {
   // ice resurfacer
   if (cleaning === true) {
     // draw the ice resurfacer
-    fill(210, 70, 72);
+    fill(55, 119, 184);
     noStroke();
     rect(resurfacerX, 0, resurfacerWidth, height);
 
@@ -172,8 +173,10 @@ function draw() {
   // only show skater when resurfacer is not cleaning
   if (cleaning === false) {
     //draw skater 
-    fill(0, 100, 100);
+    fill(255, 0, 0);
     noStroke();
     ellipse(skaterX, skaterY, 12);
   }
+
+  pop();
 }

@@ -108,14 +108,10 @@ function draw() {
 
 function mousePressed() {
     //check if the mouse is over the umbrella
-    //mouseX > umbrella.x - 80: Mouse is to the right of the left boundary.
-    //mouseX < umbrella.x + 80: Mouse is to the left of the right boundary.
-    //mouseY > umbrella.y - 30: Mouse is below the top boundary.
-    //mouseY < umbrella.y + 30: Mouse is above the bottom boundary.
-    if (mouseX > umbrella.x - 80 && 
-        mouseX < umbrella.x + 80 &&
-        mouseY > umbrella.y - 30 &&
-        mouseY < umbrella.y + 30) {
+    if (mouseX > umbrella.x - 80 && //mouseX > umbrella.x - 80: Mouse is to the right of the left boundary.
+        mouseX < umbrella.x + 80 && //mouseX < umbrella.x + 80: Mouse is to the left of the right boundary.
+        mouseY > umbrella.y - 30 && //mouseY > umbrella.y - 30: Mouse is below the top boundary.
+        mouseY < umbrella.y + 30) { //mouseY < umbrella.y + 30: Mouse is above the bottom boundary.
     dragging = true;
     } else { // Add a new raindrop
     raindrops.push({
