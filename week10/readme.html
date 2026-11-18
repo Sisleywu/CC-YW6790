@@ -10,12 +10,12 @@
       font-family: 'Courier', Courier, monospace;
       margin: 2em;
       /*padding: 1em;*/
-      color: #ffffff;
-      background-color: #000000;
+      color: #a2daff;
+      background-color: #03031d;
     }
 
     a {
-      color: rgb(255, 255, 255);
+      color: rgb(146, 193, 255);
     }
 
     a:hover {
@@ -34,12 +34,14 @@
 </head>
 
 <body>
-    <h1>Audioreactive Visualization</h1>
+    <h1>Gestrual Control</h1>
     <p>
-        I related sounds of spoken langauges, words and letters. 
-        So I created a audioreative sketch which uses the microphone input to visualize the amplitude of spoken words and letters.
-        When the volume goes up, the letters will be bigger. 
-        I had promblems with loading the p5 sound library, so I asked our LLM to help me load the p5 sound library.
+        For this week's assignment, I explored the use of ml5.js to create a sketch that responds to hand gestures. 
+        I used the Handpose model to detect hand positions and movements, I used the webcam to track the positions of my fingertips, and calculated the distance between them to control the behavior of the particle ball.
+        Qhen my fingertips are detected to be close to each other, the little particle ball will squeeze to a sphere.
+        When my fingertips are detected to be far away from each other, the little particle ball will scatter.
+        I didn't show the control outlines in the sketch, because I think this piece gives a mystery feeling, and I want the audience to explore the interaction by themselves.
+        Through this assignment, I learned how to use ml5.js to make the coding art more tangible and interactive. 
     </p>
     <ul>
     <li><a href="index.html" target="_blank">Link to sketch</a></li>
@@ -52,11 +54,8 @@
     <li><a href="https://idmnyu.github.io/p5-fundamentals/ai/ml5/" target="_blank">https://idmnyu.github.io/p5-fundamentals/ai/ml5/</a></li>
     <li><a href="https://docs.ml5js.org/#/" target="_blank">https://docs.ml5js.org/#/</a></li>
     <li><a href="https://p5js.org/examples/Classes-And-Objects-Connected-Particles/" target="_blank">https://p5js.org/examples/Classes-And-Objects-Connected-Particles/</a></li>
-    <li><a href="https://p5js.org/reference/p5/map/" target="_blank">https://p5js.org/reference/p5.sound/p5.AudioIn/</a></li>
-    <li><a href="https://p5js.org/reference/p5/text/" target="_blank">https://p5js.org/reference/p5/text/</a></li>
-    <li><a href="https://github.com/IDMp5/IDMp5.github.io/blob/main/_pages/p5js-template/index.html" target="_blank">https://github.com/IDMp5/IDMp5.github.io/blob/main/_pages/p5js-template/index.html</a></li>
-    <li><a href="https://p5js.org/reference/p5.Amplitude/getLevel/" target="_blank">https://p5js.org/reference/p5.Amplitude/getLevel/</a></li>
-    <li><a href="https://beta.p5js.org/es/reference/p5.AudioIn/start/" target="_blank">https://beta.p5js.org/es/reference/p5.AudioIn/start/</a></li>
+    <li><a href="https://p5js.org/reference/p5/map/" target="_blank">https://p5js.org/reference/p5/map/</a></li>
+    <li><a href="https://p5js.org/reference/p5/dist/" target="_blank">https://p5js.org/reference/p5/dist/</a></li>
    </ul>
     
 </body>
